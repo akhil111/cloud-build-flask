@@ -8,9 +8,10 @@ script: python3 app.py
 
 deploy:
   provider: gae
-  keyfile: clinet-secret.json.enc
-  project: cloud-build-flask
-  on: master
+  keyfile: "clinet-secret.json.enc"
+  project: "cloud-build-flask"
+  
+
 before_install:
 - openssl aes-256-cbc -K $encrypted_7ff5b6bb33a2_key -iv $encrypted_7ff5b6bb33a2_iv
   -in client-secret.json.enc -out client-secret.json -d
