@@ -1,13 +1,14 @@
-
 language: python
 
 script: python3 app.py
 
 deploy:
   provider: gae
-  keyfile: "clinet-secret.json"
-  project: "zinc-involution-256705"
+  keyfile: clinet-secret.json
+  project: cloud-build-flask 
   api_key:
-    secure: "ENCRYPTED_API_KEY"
-  on: "master"
-
+    secure: ENCRYPTED_API_KEY
+  on: master
+before_install:
+- openssl aes-256-cbc -K $encrypted_7ff5b6bb33a2_key -iv $encrypted_7ff5b6bb33a2_iv
+  -in client-secret.json.enc -out client-secret.json -d
